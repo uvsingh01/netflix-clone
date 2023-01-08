@@ -22,7 +22,7 @@ const Nav = () => {
   return (
     <NavContainer active={show} >
       <NavInnerContainer>
-        <img height="" width={"120px"} src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="netflix" onClick={()=>navigate("/")} />
+        <img height="" width={"120px"} src="./icon.png" alt="netflix" onClick={()=>navigate("/")} />
         <img height="" width="40px"  src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png' alt='profile' onClick={()=>navigate("/profile")} />
       </NavInnerContainer>
     </NavContainer>
