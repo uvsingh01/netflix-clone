@@ -4,7 +4,6 @@ import SignUpScreen from "./SignUpScreen";
 
 function LoginScreen() {
   const [signin, setSignin] = useState(false);
-
   return (
     <LoginContainer>
       <LoginBackground>

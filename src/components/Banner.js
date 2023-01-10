@@ -45,12 +45,13 @@ const HeaderContainer = styled.header`
     image
       ? `background-image: url("https://image.tmdb.org/t/p/original/${image}");`
       : ` background-image: url("https://image.tmdb.org/t/p/original/${image}");`}
-  position: relative;
   background-size: 100%;
-  background-repeat:no-repeat;
-  object-fit: contain; 
-  height: 448px;
+  min-height: 448px;
   color: white;
+  background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 `;
 
 const BannerContainer = styled.div`
@@ -91,7 +92,7 @@ const ButtonPlay = styled.button`
 const ButtonTitle = styled(ButtonPlay)``;
 
 const BannerDescription = styled.h1`
-  width: 45rem;
+  width: auto;
   line-height: 1.3;
   padding-top: 1rem;
   font-size: 0.8rem;

@@ -6,6 +6,7 @@ import axios from "../axios";
 import { sendData } from "../features/dataSlice";
 import { useNavigate } from 'react-router-dom';
 import db from './../firebase';
+// import { Carousel } from "react-responsive-carousel";
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
@@ -15,13 +16,13 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  function data(movie){
-        db.collection("movies").doc("details").set(movie);
+  function data(movie,title){
+        db.collection("movies").doc("details").set({...movie,genrename:title});
   }
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      console.log(request)
+      console.log(request);
       setMovies(request.data.results);
       return request;
     }
@@ -29,8 +30,8 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
   }, [fetchUrl]);
 
 
-  const doThese=(movie)=>{
-    data(movie);
+  const doThese=(movie,title)=>{
+    data(movie,title);
     dispatch(sendData({movie}))
     navigate("/details")
   }
@@ -43,13 +44,11 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
           (movie) =>
             ((isLargeRow && movie.poster_path) ||
             (!isLargeRow && movie.backdrop_path)) && (
-              <RowImg active={isLargeRow}
+              <RowImg
                 key={movie.id}
-                src={`${base_url}${
-                  isLargeRow ?  movie.poster_path : movie.backdrop_path 
-                }`}
+                src={`${base_url}${movie.poster_path}`}
                 alt={movie.name}
-                onClick={()=>doThese(movie)}
+                onClick={()=>doThese(movie,title)}
               />
             ))
         }
@@ -68,7 +67,7 @@ const RowContainer = styled.div`
 `;
 const RowTitle = styled.h1``;
 const RowImg = styled.img`
-  ${({active})=> active ? `max-height: 250px; ` : `max-height: 100px;` }
+  max-height: 250px; 
   margin-right: 10px;
   width:100%;
   transition: transform 450ms;
