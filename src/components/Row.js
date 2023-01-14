@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import axios from "../axios";
 import { sendData } from "../features/dataSlice";
-import { useNavigate } from 'react-router-dom';
-import db from './../firebase';
+import { useNavigate } from "react-router-dom";
+import db from "./../firebase";
 // import { Carousel } from "react-responsive-carousel";
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
@@ -16,8 +16,10 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  function data(movie,title){
-        db.collection("movies").doc("details").set({...movie,genrename:title});
+  function data(movie, title) {
+    db.collection("movies")
+      .doc("details")
+      .set({ ...movie, genrename: title });
   }
   useEffect(() => {
     async function fetchData() {
@@ -29,12 +31,11 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
     fetchData();
   }, [fetchUrl]);
 
-
-  const doThese=(movie,title)=>{
-    data(movie,title);
-    dispatch(sendData({movie}))
-    navigate("/details")
-  }
+  const doThese = (movie, title) => {
+    data(movie, title);
+    dispatch(sendData({ movie }));
+    navigate("/details");
+  };
 
   return (
     <RowContainer>
@@ -43,15 +44,15 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         {movies.map(
           (movie) =>
             ((isLargeRow && movie.poster_path) ||
-            (!isLargeRow && movie.backdrop_path)) && (
+              (!isLargeRow && movie.backdrop_path)) && (
               <RowImg
                 key={movie.id}
                 src={`${base_url}${movie.poster_path}`}
                 alt={movie.name}
-                onClick={()=>doThese(movie,title)}
+                onClick={() => doThese(movie, title)}
               />
-            ))
-        }
+            )
+        )}
       </RowImgContainer>
     </RowContainer>
   );
@@ -67,13 +68,13 @@ const RowContainer = styled.div`
 `;
 const RowTitle = styled.h1``;
 const RowImg = styled.img`
-  max-height: 250px; 
+  max-height: 250px;
   margin-right: 10px;
-  width:100%;
+  width: 100%;
   transition: transform 450ms;
-  :hover{
+  :hover {
     transform: scale(1.08);
-    opacity:1;
+    opacity: 1;
   }
 `;
 const RowImgContainer = styled.div`
