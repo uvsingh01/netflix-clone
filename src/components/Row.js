@@ -65,6 +65,7 @@ const RowContainer = styled.div`
   padding-left: 20px;
   background-color: black;
   cursor: pointer;
+  padding-top: 20px;
 `;
 const RowTitle = styled.h1``;
 const RowImg = styled.img`

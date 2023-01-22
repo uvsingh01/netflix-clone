@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import axios from "../axios";
 import requests from "../Request";
-
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Banner = () => {
-  const [movie, setMovie] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
-      // console.log(request);
-      setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
-      );
+      setMovies(request.data.results);
+      console.log(movies);
       return request;
     }
     fetchData();
@@ -24,8 +21,16 @@ const Banner = () => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
   return (
-    <HeaderContainer image={movie.backdrop_path}>
-      <BannerContainer>
+    <Carousel
+    showThumbs={false}
+    autoPlay={true}
+    transitionTime={3}
+    infiniteLoop={true}
+    showStatus={false}>
+      {movies.map((movie)=>(
+        <CarousalContainer>
+        <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}></img>
+        <BannerContainer>
         <BannerTitle>{movie.name}</BannerTitle>
         <BannerButtons>
           <ButtonPlay>play</ButtonPlay>
@@ -33,31 +38,31 @@ const Banner = () => {
         </BannerButtons>
         <BannerDescription>{truncate(movie.overview, 150)}</BannerDescription>
       </BannerContainer>
-      <BannerFade></BannerFade>
-    </HeaderContainer>
+    </CarousalContainer>
+      ))}
+    </Carousel>
   );
 };
 
 export default Banner;
 
-const HeaderContainer = styled.header`
-  ${({ image }) =>
-    image
-      ? `background-image: url("https://image.tmdb.org/t/p/original/${image}");`
-      : ` background-image: url("https://image.tmdb.org/t/p/original/${image}");`}
-  background-size: 100%;
-  min-height: 448px;
+const CarousalContainer = styled.div`
+  text-align: left;
+  min-height: 600px;
   color: white;
-  background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  >img{
+    position:relative;
+    height:600px;
+  }
 `;
 
 const BannerContainer = styled.div`
+  position: absolute;
+  top: 0;
   margin-left: 30px;
-  padding-top: 140px;
+  margin-top: 250px;
   height: 190px;
+  max-width: 500px;
 `;
 
 const BannerTitle = styled.h1`
@@ -95,17 +100,7 @@ const BannerDescription = styled.h1`
   width: auto;
   line-height: 1.3;
   padding-top: 1rem;
-  font-size: 0.8rem;
-  max-width: 360px;
+  font-size: 1rem;
   height: 80px;
 `;
 
-const BannerFade = styled.div`
-  height: 7.5rem;
-  background-image: linear-gradient(
-    180deg,
-    transparent,
-    rgba(37, 37, 37, 0.61),
-    #111
-  );
-`;
