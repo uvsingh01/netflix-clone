@@ -56,7 +56,7 @@ const CarousalContainer = styled.div`
   max-height: 600px;
   color: white;
   > img {
-    object-fit: contain;
+    min-height: 300px;
   }
 `;
 
