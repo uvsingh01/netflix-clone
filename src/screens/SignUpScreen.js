@@ -53,7 +53,7 @@ const SignUpScreenContainer = styled.div`
   background: rgba(0, 0, 0, 0.85);
 
   > form {
-    display: grid;
+    display: flex;
     flex-direction: column;
   }
 

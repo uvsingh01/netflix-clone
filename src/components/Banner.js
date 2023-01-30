@@ -22,23 +22,28 @@ const Banner = () => {
   }
   return (
     <Carousel
-    showThumbs={false}
-    autoPlay={true}
-    transitionTime={3}
-    infiniteLoop={true}
-    showStatus={false}>
-      {movies.map((movie)=>(
+      showThumbs={false}
+      autoPlay={true}
+      transitionTime={3}
+      infiniteLoop={true}
+      showStatus={false}
+    >
+      {movies.map((movie) => (
         <CarousalContainer>
-        <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}></img>
-        <BannerContainer>
-        <BannerTitle>{movie.name}</BannerTitle>
-        <BannerButtons>
-          <ButtonPlay>play</ButtonPlay>
-          <ButtonTitle>My List</ButtonTitle>
-        </BannerButtons>
-        <BannerDescription>{truncate(movie.overview, 150)}</BannerDescription>
-      </BannerContainer>
-    </CarousalContainer>
+          <img
+            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+          ></img>
+          <BannerContainer>
+            <BannerTitle>{movie.name}</BannerTitle>
+            <BannerButtons>
+              <ButtonPlay>play</ButtonPlay>
+              <ButtonTitle>My List</ButtonTitle>
+            </BannerButtons>
+            <BannerDescription>
+              {truncate(movie.overview, 150)}
+            </BannerDescription>
+          </BannerContainer>
+        </CarousalContainer>
       ))}
     </Carousel>
   );
@@ -48,25 +53,27 @@ export default Banner;
 
 const CarousalContainer = styled.div`
   text-align: left;
-  min-height: 600px;
+  max-height: 600px;
   color: white;
-  >img{
-    position:relative;
-    height:600px;
+  > img {
+    object-fit: contain;
   }
 `;
 
 const BannerContainer = styled.div`
   position: absolute;
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  height: 70%;
+  justify-content: end;
   top: 0;
   margin-left: 30px;
-  margin-top: 250px;
-  height: 190px;
-  max-width: 500px;
+  max-width: 50%;
 `;
 
 const BannerTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 4vw;
   font-weight: 800;
   padding-bottom: 0.3rem;
 `;
@@ -78,11 +85,12 @@ const ButtonPlay = styled.button`
   color: #fff;
   outline: none;
   border: none;
+  font-size: 1vw;
   font-weight: 700;
   border-radius: 0.2vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-right: 1rem;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-right:1vw;
   padding-top: 0.5rem;
   background-color: rgba(51, 51, 51, 0.5);
   padding-bottom: 0.5rem;
@@ -100,7 +108,6 @@ const BannerDescription = styled.h1`
   width: auto;
   line-height: 1.3;
   padding-top: 1rem;
-  font-size: 1rem;
+  font-size: 1.8vw;
   height: 80px;
 `;
-
