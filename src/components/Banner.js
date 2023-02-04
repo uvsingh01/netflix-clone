@@ -74,7 +74,7 @@ const BannerContainer = styled.div`
 
 const BannerTitle = styled.h1`
   font-size: 4vw;
-  font-weight: 800;
+  font-weight: 500;
   padding-bottom: 0.3rem;
 `;
 
@@ -85,8 +85,8 @@ const ButtonPlay = styled.button`
   color: #fff;
   outline: none;
   border: none;
-  font-size: 1vw;
-  font-weight: 700;
+  font-size: 1.5vw;
+  font-weight: 400;
   border-radius: 0.2vw;
   padding-left: 2vw;
   padding-right: 2vw;
@@ -108,6 +108,7 @@ const BannerDescription = styled.h1`
   width: auto;
   line-height: 1.3;
   padding-top: 1rem;
+  font-weight: 400;
   font-size: 1.8vw;
   height: 80px;
 `;

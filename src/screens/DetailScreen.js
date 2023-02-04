@@ -36,7 +36,7 @@ function DetailScreen() {
   };
   useEffect(() => {
     fetchTrailer();
-  }, [details]);
+  },[details]);
 
   useEffect(() => {
     let num = 3;
@@ -59,10 +59,10 @@ function DetailScreen() {
           <Nav />
           <DetailsDesciption>
             <ReactPlayer
-              height={"300px"}
+              height={"100%"}
               width={"100%"}
               url={`${url}${trailer ? trailer : "sDL70A0I3kA"}`}
-              controls={"true"}
+              controls={"false"}
             ></ReactPlayer>
             <h1>
               {details.data().name ||

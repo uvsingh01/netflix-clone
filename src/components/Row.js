@@ -63,6 +63,7 @@ export default Row;
 const RowContainer = styled.div`
   color: white;
   padding-left: 20px;
+  padding-right: 20px;
   background-color: black;
   cursor: pointer;
   padding-top: 20px;

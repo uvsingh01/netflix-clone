@@ -51,6 +51,8 @@ const SignUpScreenContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   background: rgba(0, 0, 0, 0.85);
+  font-weight: 400;
+  
 
   > form {
     display: flex;

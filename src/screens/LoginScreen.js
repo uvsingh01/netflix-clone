@@ -50,6 +50,7 @@ const LoginContainer = styled.div`
   background: url("https://repository-images.githubusercontent.com/299409710/b42f7780-0fe1-11eb-8460-e459acd20fb4"),
     center no-repeat;
   background-size: cover;
+  
 `;
 
 const LoginBackground = styled.div``;
@@ -104,6 +105,7 @@ const LoginBody = styled.div`
   > h1 {
     font-size: 3.125rem;
     margin-bottom: 20px;
+    font-weight: 400;
   }
 
   > h2 {
@@ -133,7 +135,8 @@ const LoginButton = styled.button`
   font-size: 1rem;
   background-color: #e50914;
   border: none;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
   color: #fff;
+
 `;

@@ -14,8 +14,8 @@ function ProfileScreen() {
         <h1>Edit Profile</h1>
         <ProfileInfo>
           <img
-            height="100px"
-            width=""
+            height="20%"
+            width="20%"
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt="profile"
           />
@@ -38,6 +38,7 @@ const ProfileContainer = styled.div`
   height: 100vh;
   color: white;
   background-color: black;
+  padding-top: 40px;
 `;
 
 const ProfileBody = styled.div`
@@ -47,10 +48,10 @@ const ProfileBody = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-top: 8%;
-  max-width: 800px;
+  max-width: 600px;
 
   > h1 {
-    font-size: 50px;
+    font-size: 5vw;
     font-weight: 400;
     border-bottom: 1px solid #282c2d;
     margin-bottom: 20px;
