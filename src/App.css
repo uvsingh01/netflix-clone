@@ -1,5 +1,5 @@
-*{
-    font-family: 'Bebas Neue', cursive;
+.App{
     letter-spacing: 1px;
-    /* background-color: black; */
+    color: white;
+    /* background-color: rgb(0, 0, 0); */
 }

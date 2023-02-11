@@ -59,7 +59,7 @@ function DetailScreen() {
           <Nav />
           <DetailsDesciption>
             <ReactPlayer
-              height={"100%"}
+              height={"300px"}
               width={"100%"}
               url={`${url}${trailer ? trailer : "sDL70A0I3kA"}`}
               controls={"false"}

@@ -11,7 +11,7 @@ const Banner = () => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
       setMovies(request.data.results);
-      console.log(movies);
+      // console.log(movies);
       return request;
     }
     fetchData();
@@ -36,7 +36,7 @@ const Banner = () => {
           <BannerContainer>
             <BannerTitle>{movie.name}</BannerTitle>
             <BannerButtons>
-              <ButtonPlay>play</ButtonPlay>
+              <ButtonPlay>Play</ButtonPlay>
               <ButtonTitle>My List</ButtonTitle>
             </BannerButtons>
             <BannerDescription>
