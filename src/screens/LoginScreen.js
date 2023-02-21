@@ -103,35 +103,40 @@ const LoginBody = styled.div`
   padding: 20px;
 
   > h1 {
-    font-size: 3.125rem;
+    font-size: 4vw;
     margin-bottom: 20px;
     font-weight: 400;
   }
 
   > h2 {
-    font-size: 2rem;
+    font-size: 3vw;
     font-weight: 400;
     margin-bottom: 30px;
   }
 
   > h3 {
-    font-size: 1.3rem;
+    font-size: 2vw;
     font-weight: 400;
     margin-bottom: 20px;
   }
 `;
 
-const LoginInputContainer = styled.div``;
+const LoginInputContainer = styled.div`
+display: flex;
+flex-direction:column;
+width: 100%;
+`;
 const LoginInput = styled.input`
   padding: 10px;
   outline-width: 0;
   height: 30px;
-  width: 30%;
+  width: 70%;
   border: none;
   max-width: 600px;
+  
 `;
 const LoginButton = styled.button`
-  padding: 16px 20px;
+  padding: 13px 20px;
   font-size: 1rem;
   background-color: #e50914;
   border: none;
