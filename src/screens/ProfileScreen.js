@@ -37,8 +37,7 @@ export default ProfileScreen;
 const ProfileContainer = styled.div`
   height: 100vh;
   color: white;
-  background-color: black;
-  padding-top: 40px;
+  background: url("./backdropimage.jpeg");
 `;
 
 const ProfileBody = styled.div`
@@ -47,7 +46,7 @@ const ProfileBody = styled.div`
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 8%;
+  padding-top: 100px;
   max-width: 600px;
 
   > h1 {
