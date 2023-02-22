@@ -33,7 +33,7 @@ function SignUpScreen() {
       emailRef.current.value,
       passRef.current.value
     )
-    .then((authUser)=>{console.log(authUser,123);})
+    .then(()=>{console.log(123);})
     .catch((error)=>{alert(error.message)});
   };
   return (
