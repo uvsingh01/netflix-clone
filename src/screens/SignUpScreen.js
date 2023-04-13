@@ -18,7 +18,7 @@ function SignUpScreen() {
   }
   const register = (e) => {
     e.preventDefault();
-    console.log("signup");
+    // console.log("signup");
     auth.createUserWithEmailAndPassword(
       emailRef.current.value,
       passRef.current.value
@@ -33,7 +33,6 @@ function SignUpScreen() {
       emailRef.current.value,
       passRef.current.value
     )
-    .then(()=>{console.log(123);})
     .catch((error)=>{alert(error.message)});
   };
   return (

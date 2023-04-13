@@ -44,7 +44,7 @@ const ProfileBody = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-  margin-left: auto;
+  margin-left: 10%git ;
   margin-right: auto;
   padding-top: 100px;
   max-width: 600px;
